@@ -35,8 +35,8 @@ describe('FizzBuzz', () => {
       let result:string = sut.Say(3);
       let result2:string = sut.Say(9);
       //ASSERT
-      expect(result).to.equal("fizz");
-      expect(result2).to.equal("fizz");
+      expect(result).to.equal("Fizz");
+      expect(result2).to.equal("Fizz");
     });
 
     it('should return Buzz if the number is a multiple of 5 ', () => {
