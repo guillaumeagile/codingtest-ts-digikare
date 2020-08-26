@@ -27,5 +27,17 @@ describe('FizzBuzz', () => {
       //ASSERT
       expect(result).to.equal("1");
     });
+
+    it('should return fizz if the number is 3 or multiple of 3 ', () => {
+      //ARANGE
+      
+      //ACT
+      let result:string = sut.Say(3);
+      let result2:string = sut.Say(9);
+      //ASSERT
+      expect(result).to.equal("fizz");
+      expect(result2).to.equal("fizz");
+    });
+
   });
 });
