@@ -50,5 +50,18 @@ describe('FizzBuzz', () => {
       expect(result2).to.equal("Buzz");
     });
 
+    it('should return FizzBuzz if the number is a multiple of 3 and 5 ', () => {
+      //ARANGE
+      
+      //ACT
+      let result:string = sut.Say(15);
+      let result2:string = sut.Say(30);
+      //ASSERT
+      expect(result).to.equal("FizzBuzz");
+      expect(result2).to.equal("FizzBuzz");
+    });
+
+
+
   });
 });
