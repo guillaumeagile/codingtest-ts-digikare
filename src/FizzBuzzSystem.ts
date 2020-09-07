@@ -1,17 +1,20 @@
 
+
 export default class FizzBuzzSystem {
 
   Say(x: number): string {
     
     let output: string = "";
-    let divBy3: boolean = (x>0) && (x % 3 ==0);
-    let divBy5: boolean =(x>0) && (x % 5 ==0)
-    if (divBy3)
-      output += "Fizz";
-    if (divBy5)
-     output += "Buzz";
+    let mapOfRules = new Map<string, number>();
+    mapOfRules.set("Fizz", 3);
+    mapOfRules.set("Buzz", 5);
 
-     if (output.length !=0)
+    if (x ==0)
+        return "0";
+
+    mapOfRules.forEach( ( value: number,key: string) => { if (x % value === 0) output+= key } );    
+    
+     if (output.length !==0)
         return output;
     return x.toString();
   }
