@@ -6,7 +6,13 @@ describe('FizzBuzz', () => {
   var sut: FizzBuzzSystem;
 
   beforeEach(function() {
-    sut = new FizzBuzzSystem();
+    let mapOfRules = new Map<string, number>();
+    //une initialisation en ligne de cette variable ne fonctionne pas :(
+    mapOfRules.set("Fizz", 3);
+    mapOfRules.set("Buzz", 5);
+
+    sut = new FizzBuzzSystem(mapOfRules);
+
   });
 
   describe('1st feature', () => {
