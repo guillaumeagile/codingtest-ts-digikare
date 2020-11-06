@@ -17,5 +17,13 @@ npm test
 
 This would watch source and test files for changes and execute the tests.
 
+# Tell don't ask
 
-Test de commit Anthony
+https://deviq.com/tell-dont-ask/
+
+1/ Le traduire en ts 
+
+
+- kata possible 
+
+https://github.com/mapu77/tell-dont-ask-kata
