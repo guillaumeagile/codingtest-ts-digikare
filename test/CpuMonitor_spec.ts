@@ -1,9 +1,10 @@
-import cpuMonitor from "../src/cpuMonitor";
+import CpuMonitor from "../src/CpuMonitor";
+// import Client from "../src/Client";
 import {expect} from 'chai';
 
 describe('Cpu Monitor', () => {
 
-    var sut: cpuMonitor;
+    let sut: CpuMonitor;
 
 
     describe('1st feature', () => {
