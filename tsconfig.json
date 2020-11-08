@@ -1,10 +1,13 @@
 {
     "compilerOptions": {
         "module": "commonjs",
-        "target": "es5",
-        "noImplicitAny": false,
+        "target": "es5",        
         "sourceMap": false,
-        "types": ["jasmine"]
+        "types": ["jasmine"],                       
+        "allowJs": true,          
+        "strict": true,         
+        "noImplicitAny": true,
+        "esModuleInterop": true
     },
     "exclude": [
         "node_modules"
