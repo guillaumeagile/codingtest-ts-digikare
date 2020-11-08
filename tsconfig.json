@@ -4,8 +4,7 @@
         "target": "es5",        
         "sourceMap": false,
         "types": ["jasmine"],                       
-        "allowJs": true,    
-        "rootDir": "src",
+        "allowJs": true,          
         "strict": true,         
         "noImplicitAny": true,
         "esModuleInterop": true

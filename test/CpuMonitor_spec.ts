@@ -13,7 +13,7 @@ describe('Cpu Monitor', () => {
             //ACT
             let result: boolean = sut.AlertService();
             //ASSERT
-            expect(result).to.equal("99");
+            expect(result).to.equal(false);
         });
 
     });
