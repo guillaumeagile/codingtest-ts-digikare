@@ -16,7 +16,7 @@ describe('Cpu Monitor', () => {
             let result: boolean = sut.AlertService();
             //ASSERT
             expect(result).to.equal(false);
-            expect(CpuMonitor).to.not.be.null;
+            expect(cpuMon).to.not.be.null;
         });
 
     });
