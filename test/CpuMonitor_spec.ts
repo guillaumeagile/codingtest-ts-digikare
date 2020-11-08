@@ -1,19 +1,17 @@
-import CpuMonitor from "../src/CpuMonitor";
-// import Client from "../src/Client";
+import Client from "../src/Client";
 import {expect} from 'chai';
 
 describe('Cpu Monitor', () => {
 
-    let sut: CpuMonitor;
+    let sut: Client;
 
 
     describe('1st feature', () => {
-        it('Should failed', () => {
+        it('Should failed', (): void => {
             //ARANGE
-            sut.Value = 0;
-
+            sut = new Client();
             //ACT
-            let result: number = sut.Value;
+            let result: boolean = sut.AlertService();
             //ASSERT
             expect(result).to.equal("99");
         });

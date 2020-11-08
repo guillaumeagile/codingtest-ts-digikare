@@ -1,7 +1,9 @@
+/// <reference path="CpuMonitor.ts";
+
 export default class Client {
 
-    AlertService() {
-
+    AlertService() : boolean {
+        return false;
     }
 
 }
