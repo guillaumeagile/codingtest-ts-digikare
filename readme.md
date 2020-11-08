@@ -26,13 +26,3 @@ npm run test
 
 This would watch source and test files for changes and execute the tests.
 
-# Tell don't ask
-
-https://deviq.com/tell-dont-ask/
-
-1/ Le traduire en ts 
-
-
-- autre kata possible 
-celui-ci est un kata de refactoring, les tests sont déjà écrits:
-https://github.com/mapu77/tell-dont-ask-kata
