@@ -20,8 +20,8 @@ npm i typescript -D
 
 Run:
 ```
-npm build
-npm test
+npm run build
+npm run test
 ```
 
 This would watch source and test files for changes and execute the tests.
