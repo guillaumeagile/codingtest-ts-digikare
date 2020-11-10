@@ -3,6 +3,7 @@
 export default class CpuMonitor
 {
     private _value: number;
+
     public get Value(): number {
         return this._value;
     }
