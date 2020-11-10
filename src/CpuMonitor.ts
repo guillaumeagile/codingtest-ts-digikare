@@ -22,7 +22,7 @@ export default class CpuMonitor implements IActAsCpuMonitor
     
 }
 
-
+/*
 export class NoCpuMonitor implements IActAsCpuMonitor
 {   
 
@@ -34,4 +34,4 @@ export class NoCpuMonitor implements IActAsCpuMonitor
     
     } 
     
-}
+}*/
