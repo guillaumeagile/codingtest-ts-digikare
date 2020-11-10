@@ -4,16 +4,19 @@ import CpuMonitor from "./CpuMonitor";
 
 export default class Client {
 
-    private _cpuMon: CpuMonitor;
+    private _cpuMon: CpuMonitor | null;
 
-    constructor( cpuMon: CpuMonitor )
-    {        
+    constructor(cpuMon: CpuMonitor | null) {
         this._cpuMon = cpuMon;
     }
 
-    AlertService() : boolean {
-        return false;
+    AlertService(): boolean {
+        if (this._cpuMon != null) {
+            this._cpuMon.Value > 90;
+        }
+        return 
     }
-
 }
+
+
 

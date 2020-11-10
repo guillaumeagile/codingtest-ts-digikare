@@ -10,7 +10,7 @@ describe('Cpu Monitor', () => {
     describe('1st feature', () => {
         it('should not alert if no CPU is installed', (): void => {
             //ARANGE
-            sut = new Client();
+            sut = new Client(null);
             
             //ACT
             let result: boolean = sut.AlertService();
@@ -28,7 +28,7 @@ describe('Cpu Monitor', () => {
             //ACT
             let result: boolean = sut.AlertService();
             //ASSERT
-            expect(result).to.equal(false);
+            expect(result).to.equal(true);
             
         });
 
