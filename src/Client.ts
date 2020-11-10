@@ -1,19 +1,19 @@
 /// <reference path="CpuMonitor.ts";
 
-import CpuMonitor from "./CpuMonitor";
+import CpuMonitor, { NoCpuMonitor } from "./CpuMonitor";
 
 export default class Client {
 
-    private _cpuMon: CpuMonitor | null;
+    private _cpuMon: any;
 
-    constructor(cpuMon: CpuMonitor | null) {
+    constructor(cpuMon: CpuMonitor | NoCpuMonitor) {
         this._cpuMon = cpuMon;
     }
 
     AlertService(): boolean {
         //  TODO https://martinfowler.com/eaaCatalog/specialCase.html
-        if (this._cpuMon === null) 
-        return false
+        if (this._cpuMon in NoCpuMonitor)  //type guard 
+            return false
 
         return this._cpuMon.Value > 90
     }
