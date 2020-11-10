@@ -8,15 +8,15 @@ describe('Cpu Monitor', () => {
 
 
     describe('1st feature', () => {
-        it('Should failed', (): void => {
+        it('should not alert if no CPU is installed', (): void => {
             //ARANGE
             sut = new Client();
-            let cpuMon = new CpuMonitor();
+            
             //ACT
             let result: boolean = sut.AlertService();
             //ASSERT
             expect(result).to.equal(false);
-            expect(cpuMon).to.not.be.null;
+            
         });
 
     });
