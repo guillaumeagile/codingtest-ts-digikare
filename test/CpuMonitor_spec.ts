@@ -19,5 +19,18 @@ describe('Cpu Monitor', () => {
             
         });
 
+
+        it('should alert if one CPU is installed and over 90', (): void => {
+            //ARANGE
+            var cpuMonitor = new CpuMonitor();
+            sut = new Client(cpuMonitor);
+            
+            //ACT
+            let result: boolean = sut.AlertService();
+            //ASSERT
+            expect(result).to.equal(false);
+            
+        });
+
     });
 });
