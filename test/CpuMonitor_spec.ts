@@ -23,6 +23,7 @@ describe('Cpu Monitor', () => {
         it('should alert if one CPU is installed and over 90', (): void => {
             //ARANGE
             var cpuMonitor = new CpuMonitor();
+            cpuMonitor.Value=91;
             sut = new Client(cpuMonitor);
             
             //ACT
