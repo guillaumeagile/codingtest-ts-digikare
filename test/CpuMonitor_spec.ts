@@ -1,6 +1,7 @@
 import Client from "../src/Client";
-import CpuMonitor  from "../src/CpuMonitor";
+
 import {expect} from 'chai';
+import { createMonitor } from "../src/CpuMonitor";
 
 describe('Cpu Monitor', () => {
 
@@ -10,7 +11,7 @@ describe('Cpu Monitor', () => {
     describe('1st feature', () => {
         it('should not alert if no CPU is installed', (): void => {
             //ARANGE
-            sut = new Client();
+            sut = new Client(createMonitor() );
             
             //ACT
             let result: boolean = sut.AlertService();
@@ -22,9 +23,8 @@ describe('Cpu Monitor', () => {
 
         it('should alert if one CPU is installed and over 90', (): void => {
             //ARANGE
-            var cpuMonitor = new CpuMonitor();
-            cpuMonitor.Value=91;
-            sut = new Client(cpuMonitor);
+            
+            sut = new Client(createMonitor(99));
             
             //ACT
             let result: boolean = sut.AlertService();

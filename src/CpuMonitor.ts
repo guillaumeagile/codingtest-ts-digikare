@@ -1,11 +1,7 @@
 
-export interface IActAsCpuMonitor
-{
-     Value: number ;
-}
 
 
-export default class CpuMonitor implements IActAsCpuMonitor
+export default class CpuMonitor 
 {
     private _value: number;
 
@@ -16,22 +12,29 @@ export default class CpuMonitor implements IActAsCpuMonitor
         this._value = value;
     }
 
-    constructor() {
-        this._value = 0;
+    constructor(val: number) {
+        this._value = val;
     } 
     
 }
 
-/*
-export class NoCpuMonitor implements IActAsCpuMonitor
-{   
 
+export class NoCpuMonitor
+{  
     public get Value(): number {
-        throw new Error('should never come here');
-    }    
+        throw new Error();
+    }
 
-    constructor() {
-    
-    } 
-    
-}*/
+    public NoValue: boolean = true;
+
+}
+
+export type MaybeCpuMonitor = NoCpuMonitor | CpuMonitor;
+
+export function createMonitor(val?: number): MaybeCpuMonitor
+{
+    if (!val)
+        return new NoCpuMonitor();
+    return new CpuMonitor(val!);
+}
+
