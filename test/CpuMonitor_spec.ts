@@ -1,17 +1,18 @@
-import Client from "../src/Client";
+/// <reference path="../src/CpuMonitor.ts"/>
+/// <reference path="../src/Client.ts"/>
 
 import {expect} from 'chai';
-import { createMonitor } from "../src/CpuMonitor";
+
 
 describe('Cpu Monitor', () => {
 
-    let sut: Client;
+    let sut: Guillaume.Client;
 
 
     describe('1st feature', () => {
         it('should not alert if no CPU is installed', (): void => {
             //ARANGE
-            sut = new Client(createMonitor() );
+            sut = new Guillaume.Client(Guillaume.createMonitor() );
             
             //ACT
             let result: boolean = sut.AlertService();
@@ -24,7 +25,7 @@ describe('Cpu Monitor', () => {
         it('should alert if one CPU is installed and over 90', (): void => {
             //ARANGE
             
-            sut = new Client(createMonitor(99));
+            sut = new Guillaume.Client(Guillaume.createMonitor(99));
             
             //ACT
             let result: boolean = sut.AlertService();

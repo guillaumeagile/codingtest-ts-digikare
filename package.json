@@ -6,7 +6,7 @@
   "scripts": {
     "clean": "tsc --build --clean",
     "build": "tsc --build",
-    "test": "./node_modules/.bin/mocha -w -c"
+    "test": "./node_modules/.bin/mocha test/**/*.js -w -c"
   },
   "author": "",
   "license": "ISC",
