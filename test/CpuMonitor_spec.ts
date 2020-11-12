@@ -22,10 +22,20 @@ describe('Cpu Monitor', () => {
 
 
         it('should alert if one CPU is installed and over 90', (): void => {
-            //ARANGE
-            
+            //ARANGE            
             sut = new Client(createMonitor(99));
             
+            //ACT
+            let result: boolean = sut.AlertService();
+            //ASSERT
+            expect(result).to.equal(true);
+            
+        });
+
+        it('should alert if one CPU is installed and over 90 and another is not responding', (): void => {
+            //ARANGE            
+            sut = new Client(createMonitor());
+            sut.AddMonitor(createMonitor(99));
             //ACT
             let result: boolean = sut.AlertService();
             //ASSERT
