@@ -4,9 +4,10 @@ Imported from https://github.com/laszlokiraly/typescript-tdd
 Took me 15mn to find it, grab it and make it work
 
 Installation:
-it's recommended to install TypeScript globally:
+it's recommended to install TypeScript and Mocha globally:
 ```
 npm i typescript -g
+npm i mocha -g
 ```
 and then other necessary librairies
 ```
