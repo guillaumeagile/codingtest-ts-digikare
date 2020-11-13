@@ -1,5 +1,6 @@
 import Client from "../src/Client";
 import CpuMonitor from "../src/CpuMonitor";
+import CpuMonitorMissing from "../src/CpuMonitorMissing";
 import {expect} from 'chai';
 
 describe('Cpu Monitor', () => {
@@ -10,7 +11,7 @@ describe('Cpu Monitor', () => {
     describe('1st feature', () => {
         it('should not alert if no CPU is installed', (): void => {
             //ARANGE
-            sut = new Client(null);
+            sut = new Client(new CpuMonitorMissing());
             
             //ACT
             let result: boolean = sut.AlertService();
