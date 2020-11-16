@@ -17,7 +17,10 @@ export default class Client {
         if (this._cpuMon as CpuMonitorMissing)
             return false
         else
-            return ((this._cpuMon as CpuMonitor).Value > 90)
+        {
+            let cpuMon : CpuMonitor	= this._cpuMon as CpuMonitor;
+            return (cpuMon.Value > 90)
+        }
     }
 }
 
