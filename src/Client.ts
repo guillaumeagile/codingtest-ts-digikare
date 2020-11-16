@@ -14,11 +14,15 @@ export default class Client {
     AlertService(): boolean {
         //  TODO https://martinfowler.com/eaaCatalog/specialCase.html
 
-        if (this._cpuMon as CpuMonitorMissing)
+        if (  this._cpuMon instanceof CpuMonitorMissing)
+        {
+            console.log("Cpumonitor missing!" );
             return false
+        }
         else
         {
             let cpuMon : CpuMonitor	= this._cpuMon as CpuMonitor;
+            console.log(cpuMon.Value );
             return (cpuMon.Value > 90)
         }
     }
