@@ -5,20 +5,22 @@ import CpuMonitorMissing from "./CpuMonitorMissing";
 
 export default class Client {
 
-    private _cpuMon: CpuMonitor | CpuMonitorMissing;
+    private _cpuMonList: [ CpuMonitor | CpuMonitorMissing ];
 
-    constructor(cpuMon: CpuMonitor | CpuMonitorMissing) {
-        this._cpuMon = cpuMon;
+    constructor(cpuMonList : [CpuMonitor | CpuMonitorMissing]) {
+        this._cpuMonList = cpuMonList;
     }
 
     AlertService(): boolean {
         //  TODO https://martinfowler.com/eaaCatalog/specialCase.html
-
-        if (this._cpuMon instanceof CpuMonitorMissing) {
-            return false
-        } else {
-            return (this._cpuMon.Value > 90)
-        }
+        for (let item of this._cpuMonList)  {
+            if (item instanceof CpuMonitorMissing) {
+                return false
+            } else {
+                return (item.Value > 90)
+            }    
+        };
+        
 
 
     }
