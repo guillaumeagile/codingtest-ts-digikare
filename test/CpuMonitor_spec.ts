@@ -41,8 +41,8 @@ describe('Cpu Monitor', () => {
             var cpuMonitor = new CpuMonitor();
             cpuMonitor.Value=91;
             var cpuMonitor2 = new CpuMonitorMissing();
-            let tableau : anyCpu[];
-            tableau.push(cpuMonitor); //, cpuMonitor2]
+            let tableau: [anyCpu] = [cpuMonitor];
+            tableau.push(cpuMonitor2);
             sut = new Client(tableau);
             
             //ACT
