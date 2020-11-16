@@ -3,26 +3,25 @@
 import CpuMonitor from "./CpuMonitor";
 import CpuMonitorMissing from "./CpuMonitorMissing";
 
+export type  anyCpu = CpuMonitor | CpuMonitorMissing;
+
 export default class Client {
 
-    private _cpuMonList: [ CpuMonitor | CpuMonitorMissing ];
+    private _cpuMonList: [ anyCpu ];
 
-    constructor(cpuMonList : [CpuMonitor | CpuMonitorMissing]) {
+    constructor(cpuMonList : [anyCpu]) {
         this._cpuMonList = cpuMonList;
     }
 
     AlertService(): boolean {
-        //  TODO https://martinfowler.com/eaaCatalog/specialCase.html
+        let result = [] ;
         for (let item of this._cpuMonList)  {
-            if (item instanceof CpuMonitorMissing) {
-                return false
-            } else {
-                return (item.Value > 90)
-            }    
+            if (item instanceof CpuMonitorMissing) 
+                result.push(false);
+            else
+                result.push (item.Value > 90);                
         };
-        
-
-
+        return result.reduce( (previous, current) => {return previous || current} );
     }
 }
 
