@@ -11,7 +11,7 @@ export default class CpuMonitor {
         return (this._value > this._threshold);
     }
 
-    constructor(threshold : number ) {
+    constructor(threshold : number = 90) {
         this._threshold = threshold;
         this._value = 0;
     }
