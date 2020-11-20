@@ -2,6 +2,7 @@
 export default class CpuMonitor {
     private _value: number;  
     readonly _threshold ;
+    static readonly DEFAULT_THRESHOLD = 90;
 
     public set Value(value: number) {
         this._value = value;
@@ -11,7 +12,7 @@ export default class CpuMonitor {
         return (this._value > this._threshold);
     }
 
-    constructor(threshold : number = 90) {
+    constructor(threshold : number = CpuMonitor.DEFAULT_THRESHOLD) {
         this._threshold = threshold;
         this._value = 0;
     }

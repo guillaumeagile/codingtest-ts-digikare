@@ -1,4 +1,5 @@
 import Client, { anyCpu } from "../src/Client";
+// import DEFAULT_THRESHOLD from "../src/CpuMonitor";
 import CpuMonitor from "../src/CpuMonitor";
 import CpuMonitorMissing from "../src/CpuMonitorMissing";
 import {expect} from 'chai';
@@ -6,7 +7,7 @@ import {expect} from 'chai';
 describe('Cpu Monitor', () => {
 
     let sut: Client;
-
+    // const DEFAULT_THRESHOLD = 90;
 
     describe('1st feature', () => {
         it('should not alert if no CPU is installed', (): void => {
@@ -54,16 +55,16 @@ describe('Cpu Monitor', () => {
 
         it('should not alert if any CPU installed with specific threshold', (): void => {
             //ARANGE
-            var cpuMonitor = new CpuMonitor(92);
-            cpuMonitor.Value=91;
+            var cpuMonitor = new CpuMonitor(CpuMonitor.DEFAULT_THRESHOLD + 2);
+            cpuMonitor.Value = CpuMonitor.DEFAULT_THRESHOLD + 1;
 
             var cpuMonitor2 = new CpuMonitor();
-            cpuMonitor2.Value=90;
+            cpuMonitor2.Value = CpuMonitor.DEFAULT_THRESHOLD;
             
-            let all_cpu: [anyCpu] = [cpuMonitor];
-            all_cpu.push(cpuMonitor2);
+            let allCpu: [anyCpu] = [cpuMonitor];
+            allCpu.push(cpuMonitor2);
             
-            sut = new Client(all_cpu);
+            sut = new Client(allCpu);
             
             //ACT
             let result: boolean = sut.AlertService();
@@ -71,9 +72,6 @@ describe('Cpu Monitor', () => {
             expect(result).to.equal(false);
             
         });
-
-
-
 
     });
 });
