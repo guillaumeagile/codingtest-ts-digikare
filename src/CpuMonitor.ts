@@ -1,19 +1,18 @@
-export default class CpuMonitor {
-    private _value: number;
 
-    public get Value(): number {
-        return this._value;
-    }
+export default class CpuMonitor {
+    private _value: number;  
+    readonly _threshold ;
 
     public set Value(value: number) {
         this._value = value;
     }
 
     public hasAlert(): boolean {
-        return (this._value > 90);
+        return (this._value > this._threshold);
     }
 
-    constructor() {
+    constructor(threshold : number ) {
+        this._threshold = threshold;
         this._value = 0;
     }
 

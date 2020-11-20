@@ -23,7 +23,7 @@ describe('Cpu Monitor', () => {
 
         it('should alert if one CPU is installed and over 90', (): void => {
             //ARANGE
-            var cpuMonitor = new CpuMonitor();
+            var cpuMonitor = new CpuMonitor(90);
             cpuMonitor.Value=91;
             sut = new Client([cpuMonitor]);
             
@@ -38,7 +38,7 @@ describe('Cpu Monitor', () => {
 
         it('should alert if one CPU is installed and over 90 and another is missing', (): void => {
             //ARANGE
-            var cpuMonitor = new CpuMonitor();
+            var cpuMonitor = new CpuMonitor(90);
             cpuMonitor.Value = 91;
             var cpuMonitor2 = new CpuMonitorMissing();
             let all_cpu: [anyCpu] = [cpuMonitor];

@@ -16,9 +16,9 @@ export default class Client {
     AlertService(): boolean {
         let result = [] ;
         for (let item of this._cpuMonList)  {
-            if (item instanceof CpuMonitorMissing) 
+            if (item instanceof CpuMonitorMissing) //type guard
                 result.push(false);
-            else
+            else //type guard works also within conditional branches
                 result.push (item.hasAlert());
         };
         return result.reduce( (previous, current) => {return previous || current} );
