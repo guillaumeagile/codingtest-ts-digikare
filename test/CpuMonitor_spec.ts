@@ -39,11 +39,11 @@ describe('Cpu Monitor', () => {
         it('should alert if one CPU is installed and over 90 and another is missing', (): void => {
             //ARANGE
             var cpuMonitor = new CpuMonitor();
-            cpuMonitor.Value=91;
+            cpuMonitor.Value = 91;
             var cpuMonitor2 = new CpuMonitorMissing();
-            let tableau: [anyCpu] = [cpuMonitor];
-            tableau.push(cpuMonitor2);
-            sut = new Client(tableau);
+            let all_cpu: [anyCpu] = [cpuMonitor];
+            all_cpu.push(cpuMonitor2);
+            sut = new Client(all_cpu);
             
             //ACT
             let result: boolean = sut.AlertService();

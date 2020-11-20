@@ -19,7 +19,7 @@ export default class Client {
             if (item instanceof CpuMonitorMissing) 
                 result.push(false);
             else
-                result.push (item.Value > 90);                
+                result.push (item.hasAlert());
         };
         return result.reduce( (previous, current) => {return previous || current} );
     }
