@@ -25,7 +25,7 @@ describe('Cpu Monitor', () => {
         it('should alert if one CPU is installed and over 90', (): void => {
             //ARANGE
             var cpuMonitor = new CpuMonitor();
-            cpuMonitor.Value=91;
+            cpuMonitor.Value=CpuMonitor.DEFAULT_THRESHOLD + 1;
             sut = new Client([cpuMonitor]);
             
             //ACT
@@ -40,7 +40,7 @@ describe('Cpu Monitor', () => {
         it('should alert if one CPU is installed and over 90 and another is missing', (): void => {
             //ARANGE
             var cpuMonitor = new CpuMonitor();
-            cpuMonitor.Value = 91;
+            cpuMonitor.Value = CpuMonitor.DEFAULT_THRESHOLD + 1;
             var cpuMonitor2 = new CpuMonitorMissing();
             let all_cpu: [anyCpu] = [cpuMonitor];
             all_cpu.push(cpuMonitor2);
