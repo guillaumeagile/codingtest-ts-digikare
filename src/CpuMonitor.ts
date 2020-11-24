@@ -8,18 +8,13 @@ export default class CpuMonitor implements IExposeAlerts {
     public set Value(value: number) {
         this._value = value;
     }
-
-    hasAlert(): boolean {
-        return (this._value > this._threshold);
-    }
-
     constructor(threshold : number = CpuMonitor.DEFAULT_THRESHOLD) {
         this._threshold = threshold;
         this._value = 0;
     }
 
     TemperatureAlert(): boolean {
-        throw new Error("Method not implemented.");
+        return (this._value > this._threshold);
     }
 
 }

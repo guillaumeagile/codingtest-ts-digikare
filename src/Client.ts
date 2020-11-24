@@ -1,6 +1,5 @@
 /// <reference path="CpuMonitor.ts";
 
-import CpuMonitor from "./CpuMonitor";
 import CpuMonitorMissing from "./CpuMonitorMissing";
 import IExposeAlerts from "./IExposeAlerts";
 
