@@ -2,8 +2,9 @@
 
 import CpuMonitor from "./CpuMonitor";
 import CpuMonitorMissing from "./CpuMonitorMissing";
+import IExposeAlerts from "./IExposeAlerts";
 
-export type  anyCpu = CpuMonitor | CpuMonitorMissing;
+export type  anyCpu = IExposeAlerts | CpuMonitorMissing;
 
 export default class Client {
 
@@ -19,7 +20,7 @@ export default class Client {
             if (item instanceof CpuMonitorMissing) //type guard
                 result.push(false);
             else //type guard works also within conditional branches
-                result.push (item.hasAlert());
+                result.push (item.TemperatureAlert());
         };
         return result.reduce( (previous, current) => {return previous || current} );
     }
