@@ -15,7 +15,6 @@ export default class CityCpuMonitor implements IExposeAlerts {
 
 
     TemperatureAlert(): boolean {
-        throw new Error("Method not implemented.");
         const data = await http(
             "https://jsonplaceholder.typicode.com/todos/71"
         );
