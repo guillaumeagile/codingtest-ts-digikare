@@ -1,5 +1,5 @@
 import IExposeAlerts from "./IExposeAlerts";
-
+//import * as fetch from "../node_modules/node-fetch/";
 
 async function http(
     request: RequestInfo
@@ -15,11 +15,16 @@ export default class CityCpuMonitor implements IExposeAlerts {
 
 
     TemperatureAlert(): boolean {
-        const data = await http(
-            "https://jsonplaceholder.typicode.com/todos/71"
-        );
+        let temperature = 99999;
+        const data = http(
+            "https://jsonplaceholder.typicode.com/todos/99"
+        ).then( res=> {
+            console.log(res.id);             
+            temperature= res.id;
+            } );
 
-        return data.id > CityCpuMonitor.DEFAULT_THRESHOLD;
+        console.log(temperature);
+        return temperature > CityCpuMonitor.DEFAULT_THRESHOLD;
 
     }
 

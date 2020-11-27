@@ -5,6 +5,8 @@ https://codetree.dev/rest-http-api-calls-with-typescript/
 https://openweathermap.org/current
 
 
+npm i isomorphic-fetch --save
+
 24.11.2020
 
 implémenter l'appel HTTP REST à un service distant,  pour test integration
