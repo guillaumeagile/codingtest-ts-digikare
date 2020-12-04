@@ -13,19 +13,14 @@ export default class CityCpuMonitor implements IExposeAlerts {
 
     static readonly DEFAULT_THRESHOLD = 90;
 
-
-    TemperatureAlert(): boolean {
-        let temperature = 99999;
-        const data = http(
+    TemperatureAlert(): Promise<boolean> {
+  
+        return http(
             "https://jsonplaceholder.typicode.com/todos/99"
         ).then( res=> {
             console.log(res.id);             
-            temperature= res.id;
+            let temperature= res.id;
+            return   temperature > CityCpuMonitor.DEFAULT_THRESHOLD;
             } );
-
-        console.log(temperature);
-        return temperature > CityCpuMonitor.DEFAULT_THRESHOLD;
-
     }
-
 }

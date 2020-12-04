@@ -7,7 +7,7 @@ describe('Cpu Monitor', () => {
     let sut: Client;    
 
     describe('1st feature', () => {
-        it('integration should  alert if the temperature of the city  is over 90', (): void => {
+        it('should  alert if the temperature of the city  is over 90', (): void => {
             //ARANGE
             sut = new Client([new CityCpuMonitor()]);            
             //ACT

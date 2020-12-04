@@ -13,8 +13,10 @@ export default class CpuMonitor implements IExposeAlerts {
         this._value = 0;
     }
 
-    TemperatureAlert(): boolean {
-        return (this._value > this._threshold);
+    TemperatureAlert(): Promise<boolean> {
+        // var p = new Promise<boolean>((resolve, reject)=> { resolve(  (this._value > this._threshold)) });
+        // return p;
+        return Promise.resolve(this._value > this._threshold);
     }
 
 }

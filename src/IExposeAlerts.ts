@@ -1,3 +1,3 @@
  export default interface IExposeAlerts{
-      TemperatureAlert() : boolean;
+      TemperatureAlert() : Promise<boolean>;
  }
